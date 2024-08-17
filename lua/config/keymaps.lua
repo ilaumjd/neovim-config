@@ -9,6 +9,8 @@ end
 
 ------ NORMAL ------
 map("n", "x", '"_x', { desc = "Prevent copy on press x" })
+map("n", "<Tab>", ">>", { desc = "Indent current line" })
+map("n", "<S-Tab>", "<<", { desc = "Unindent current line" })
 
 ----- INSERT ------
 map("i", "jk", "<ESC>", { desc = "Press jk fast to enter" })
