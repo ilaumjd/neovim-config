@@ -21,6 +21,15 @@ return {
           end,
         },
       },
+      setup = {
+        sourcekit = function()
+          LazyVim.lsp.on_attach(function(client)
+            client.config.capabilities.textDocument.inlayHint = {
+              dynamicRegistration = false,
+            }
+          end, "sourcekit")
+        end,
+      },
     },
   },
 
