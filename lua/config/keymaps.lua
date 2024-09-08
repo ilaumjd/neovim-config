@@ -21,9 +21,6 @@ map("n", "<leader>bd", "<Cmd>BufferClose<CR>", { desc = "Close current buffer" }
 map("n", "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", { desc = "Close other buffers" })
 map("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
------- INSERT ------
-map("i", "jk", "<ESC>", { desc = "Exit insert mode" })
-
 ------ VISUAL BLOCK ------
 map("x", "J", ":move '>+1<CR>gv-gv", { desc = "Move selected text down" })
 map("x", "K", ":move '<-2<CR>gv-gv", { desc = "Move selected text up" })
