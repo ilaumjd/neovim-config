@@ -13,6 +13,20 @@ return {
     },
   },
   opts = {
+    formatters_by_ft = {
+      lua = { "stylua" },
+      rust = { "rustfmt" },
+      nix = { "nixfmt" },
+      javascript = { "prettier" },
+      typescript = { "prettier" },
+      jsx = { "prettier" },
+      tsx = { "prettier" },
+      json = { "prettier" },
+      html = { "prettier" },
+      css = { "prettier" },
+      yaml = { "prettier" },
+      swift = { "swiftformat" },
+    },
     format_on_save = {
       timeout_ms = 500,
       lsp_fallback = true,

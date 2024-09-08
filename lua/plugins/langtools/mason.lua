@@ -10,6 +10,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "eslint",
           "lua_ls",
           "nil_ls",
           "rust_analyzer",
