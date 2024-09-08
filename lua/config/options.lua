@@ -18,4 +18,4 @@ opt.tabstop = 2 -- Number of spaces tabs count for
 opt.termguicolors = true -- True color support
 opt.timeoutlen = 300 -- For which-key plugin
 opt.undofile = true
-opt.mouse = 'a'
+opt.mouse = "a"

@@ -1,13 +1,13 @@
 return {
   "startup-nvim/startup.nvim",
-  dependencies = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+  dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
   config = function()
     local function get_neovim_version()
       local v = vim.version()
       return string.format("Neovim v%d.%d.%d", v.major, v.minor, v.patch)
     end
 
-    require"startup".setup({
+    require("startup").setup({
       header = {
         type = "text",
         align = "center",
@@ -62,7 +62,7 @@ return {
         cursor_column = 0.5,
         empty_lines_between_mappings = true,
         disable_statuslines = true,
-        paddings = {1,2,2,2,1},
+        paddings = { 1, 2, 2, 2, 1 },
       },
       mappings = {
         execute_command = "<CR>",
@@ -75,7 +75,7 @@ return {
         background = "#1f2227",
         folded_section = "#56b6c2",
       },
-      parts = {"header", "body", "footer"},
+      parts = { "header", "body", "footer" },
     })
-  end
+  end,
 }

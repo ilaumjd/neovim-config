@@ -1,12 +1,13 @@
 return {
-  {'romgrk/barbar.nvim',
+  {
+    "romgrk/barbar.nvim",
     dependencies = {
-      'lewis6991/gitsigns.nvim',
-      'nvim-tree/nvim-web-devicons',
+      "lewis6991/gitsigns.nvim",
+      "nvim-tree/nvim-web-devicons",
     },
     opts = {
       animation = true,
     },
-    version = '^1.0.0',
+    version = "^1.0.0",
   },
 }

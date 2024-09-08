@@ -16,12 +16,11 @@ vim.cmd("map q <Nop>")
 ------ STARTER ------
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    if vim.fn.argc() == 0 and vim.fn.line2byte('$') == -1 then
-      require('startup').display()
+    if vim.fn.argc() == 0 and vim.fn.line2byte("$") == -1 then
+      require("startup").display()
     end
   end,
 })
-
 
 ------ LAZY VIM ------
 local function augroup(name)
@@ -78,9 +77,19 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("close_with_q"),
   pattern = {
-    "PlenaryTestPopup", "help", "lspinfo", "man", "notify", "qf",
-    "spectre_panel", "startuptime", "tsplayground", "neotest-output",
-    "checkhealth", "neotest-summary", "neotest-output-panel"
+    "PlenaryTestPopup",
+    "help",
+    "lspinfo",
+    "man",
+    "notify",
+    "qf",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+    "neotest-output",
+    "checkhealth",
+    "neotest-summary",
+    "neotest-output-panel",
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
