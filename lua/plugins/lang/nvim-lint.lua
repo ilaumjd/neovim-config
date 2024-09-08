@@ -7,6 +7,9 @@ return {
   config = function()
     local lint = require("lint")
     lint.linters_by_ft = {
+      nix = { "nix" },
+      rust = { "clippy" },
+      swift = { "swiftlint" },
       javascript = { "eslint" },
       typescript = { "eslint" },
       jsx = { "eslint" },
@@ -15,8 +18,6 @@ return {
       html = { "eslint" },
       css = { "eslint" },
       yaml = { "eslint" },
-      rust = { "clippy" },
-      nix = { "nix" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

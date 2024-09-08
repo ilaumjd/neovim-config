@@ -28,15 +28,6 @@ return {
   },
 
   -- {
-  --   "mfussenegger/nvim-lint",
-  --   opts = function()
-  --     require("lint").linters_by_ft = {
-  --       swift = { "swiftlint" },
-  --     }
-  --   end,
-  -- },
-
-  -- {
   --   "wojciech-kulik/xcodebuild.nvim",
   --   dependencies = {
   --     "nvim-telescope/telescope.nvim",
