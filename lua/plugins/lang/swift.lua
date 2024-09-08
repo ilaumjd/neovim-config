@@ -34,14 +34,15 @@ return {
     },
   },
 
-  -- {
-  --   "mfussenegger/nvim-lint",
-  --   opts = {
-  --     linters_by_ft = {
-  --       swift = { "swiftlint" },
-  --     },
-  --   },
-  -- },
+  {
+    "mfussenegger/nvim-lint",
+    opts = function()
+      require("lint").linters_by_ft = {
+        swift = { "swiftlint" },
+      }
+    end,
+  },
+
   -- {
   --   "wojciech-kulik/xcodebuild.nvim",
   --   dependencies = {
