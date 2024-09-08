@@ -15,7 +15,6 @@ return {
           "swift",
           "javascript",
           "typescript",
-          "jsx",
           "tsx",
           "json",
           "html",
