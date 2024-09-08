@@ -13,6 +13,7 @@ return {
       keymap = {
         recommended = false,
         manual_complete = "<C-Space>",
+        jump_to_mark = "<C-\\>",
       },
       clients = {
         snippets = {
