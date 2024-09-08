@@ -8,6 +8,25 @@ return {
     },
     config = function()
       require("nvim-treesitter.configs").setup({
+        ensure_installed = {
+          "lua",
+          "nix",
+          "rust",
+          "swift",
+          "javascript",
+          "typescript",
+          "jsx",
+          "tsx",
+          "json",
+          "html",
+          "css",
+          "yaml",
+          "vim",
+          "vimdoc",
+          "query",
+          "markdown",
+          "markdown_inline",
+        },
         sync_install = false,
         auto_install = true,
         highlight = {
