@@ -9,7 +9,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer" },
         automatic_installation = false,
       })
     end,
@@ -17,14 +16,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function(_, opts)
-      local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
-      lspconfig.rust_analyzer.setup({})
-
-      if opts.servers.sourcekit then
-        lspconfig.sourcekit.setup(opts.servers.sourcekit)
-      end
-
       -- Keymaps
       vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
       vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
@@ -53,18 +44,5 @@ return {
         end,
       })
     end,
-    opts = {
-      servers = {
-        sourcekit = {
-          root_dir = function(filename, _)
-            local util = require("lspconfig.util")
-            return util.root_pattern("buildServer.json")(filename)
-              or util.root_pattern("*.xcodeproj", "*.xcworkspace")(filename)
-              or util.find_git_ancestor(filename)
-              or util.root_pattern("Package.swift")(filename)
-          end,
-        },
-      },
-    },
   },
 }
