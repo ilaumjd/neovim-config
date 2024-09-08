@@ -2,7 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function()
-      require("lspconfig").lua_ls.setup({})
+      require("lspconfig").nil_ls.setup({})
     end,
   },
 
@@ -10,7 +10,7 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        lua = { "stylua" },
+        nix = { "nixfmt" },
       },
     },
   },

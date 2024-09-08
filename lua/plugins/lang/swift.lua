@@ -1,11 +1,4 @@
 return {
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      opts.ensure_installed = opts.ensure_installed or {}
-      vim.list_extend(opts.ensure_installed, { "swift" })
-    end,
-  },
 
   {
     "neovim/nvim-lspconfig",
@@ -34,14 +27,14 @@ return {
     },
   },
 
-  {
-    "mfussenegger/nvim-lint",
-    opts = function()
-      require("lint").linters_by_ft = {
-        swift = { "swiftlint" },
-      }
-    end,
-  },
+  -- {
+  --   "mfussenegger/nvim-lint",
+  --   opts = function()
+  --     require("lint").linters_by_ft = {
+  --       swift = { "swiftlint" },
+  --     }
+  --   end,
+  -- },
 
   -- {
   --   "wojciech-kulik/xcodebuild.nvim",

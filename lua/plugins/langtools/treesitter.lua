@@ -8,22 +8,6 @@ return {
     },
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "bash",
-          "git_rebase",
-          "gitcommit",
-          "gitignore",
-          "javascript",
-          "json",
-          "markdown",
-          "markdown_inline",
-          "nix",
-          "python",
-          "ruby",
-          "toml",
-          "typescript",
-          "yaml",
-        },
         sync_install = false,
         auto_install = true,
         highlight = {
