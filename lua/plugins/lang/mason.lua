@@ -14,7 +14,7 @@ return {
           "lua_ls",
           "nil_ls",
           "rust_analyzer",
-          "tsserver",
+          "ts_ls",
         },
         automatic_installation = true,
       })
