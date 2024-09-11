@@ -22,13 +22,34 @@ return {
         },
       })
 
-      -- Keybindings
       local builtin = require("telescope.builtin")
-      vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
-      vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Grep files" })
-      vim.keymap.set("n", "<leader>fk", builtin.keymaps, { desc = "Find keymaps" })
-      vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find buffers" })
-      vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Find recent files" })
+      local function map(mode, l, r, opts)
+        opts = opts or {}
+        opts.buffer = bufnr
+        vim.keymap.set(mode, l, r, opts)
+      end
+
+      -- Files
+      map("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
+      map("n", "<leader>fg", builtin.live_grep, { desc = "Find grep" })
+      map("n", "<leader>fw", builtin.grep_string, { desc = "Find string" })
+      map("n", "<leader>fr", function()
+        builtin.oldfiles({ cwd_only = true })
+      end, { desc = "Find recent files (global)" })
+      map("n", "<leader>fR", builtin.oldfiles, { desc = "Find recent files" })
+
+      -- Helpers
+      map("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
+      map("n", "<leader>fk", builtin.keymaps, { desc = "Keymaps" })
+      map("n", "<leader>fh", builtin.help_tags, { desc = "Help" })
+      map("n", "<leader>f:", builtin.command_history, { desc = "Command history" })
+      map("n", "<leader>f;", builtin.commands, { desc = "Commands" })
+      map("n", "<leader>fs", builtin.search_history, { desc = "Search history" })
+
+      -- Git
+      map("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
+      map("n", "<leader>gl", builtin.git_bcommits, { desc = "Git log" })
+      map("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
     end,
   },
 
