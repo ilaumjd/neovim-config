@@ -14,6 +14,7 @@ return {
   },
   opts = {
     formatters_by_ft = {
+      c = { "clang_format" },
       lua = { "stylua" },
       nix = { "nixfmt" },
       rust = { "rustfmt" },

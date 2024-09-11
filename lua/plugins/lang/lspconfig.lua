@@ -3,10 +3,11 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      lspconfig.rust_analyzer.setup({})
-      lspconfig.nil_ls.setup({})
-      lspconfig.lua_ls.setup({})
+      lspconfig.clangd.setup({})
       lspconfig.eslint.setup({})
+      lspconfig.lua_ls.setup({})
+      lspconfig.nil_ls.setup({})
+      lspconfig.rust_analyzer.setup({})
       lspconfig.ts_ls.setup({})
 
       -- Keymaps
