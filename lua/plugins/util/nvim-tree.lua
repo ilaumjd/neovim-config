@@ -51,23 +51,9 @@ return {
 
     vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
 
-    -- Function to expand and focus on the current file
-    local function focus_current_file()
-      local api = require("nvim-tree.api")
-      local current_file = vim.fn.expand("%:p")
-      if current_file ~= "" then
-        api.tree.open()
-        api.tree.find_file(current_file, true)
-      end
-    end
-
     -- Keymap to toggle tree and focus on current file
     vim.keymap.set("n", "<leader>e", function()
-      if require("nvim-tree.view").is_visible() then
-        require("nvim-tree.api").tree.toggle()
-      else
-        focus_current_file()
-      end
+      vim.cmd("NvimTreeFindFileToggle")
     end, { desc = "Explorer" })
   end,
 }
