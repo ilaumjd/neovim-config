@@ -68,6 +68,6 @@ return {
       else
         focus_current_file()
       end
-    end, { desc = "Toggle file explorer and focus current file" })
+    end, { desc = "Explorer" })
   end,
 }

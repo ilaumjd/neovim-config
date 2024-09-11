@@ -43,6 +43,13 @@ return {
         miniclue.gen_clues.registers(),
         miniclue.gen_clues.windows(),
         miniclue.gen_clues.z(),
+
+        { mode = "n", keys = "<leader>b", desc = "Buffer" },
+        { mode = "n", keys = "<leader>c", desc = "Code" },
+        { mode = "n", keys = "<leader>e", desc = "Explorer" },
+        { mode = "n", keys = "<leader>f", desc = "Find" },
+        { mode = "n", keys = "<leader>g", desc = "Git" },
+        { mode = "n", keys = "<leader>x", desc = "Diagnostics" },
       },
     })
   end,
