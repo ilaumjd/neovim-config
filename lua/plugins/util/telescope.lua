@@ -50,6 +50,12 @@ return {
       map("n", "<leader>gs", builtin.git_status, { desc = "Git status" })
       map("n", "<leader>gl", builtin.git_bcommits, { desc = "Git log" })
       map("n", "<leader>gc", builtin.git_commits, { desc = "Git commits" })
+
+      -- Diagnostics
+      map("n", "<leader>xX", builtin.diagnostics, { desc = "Diagnostics (all buffers)" })
+      map("n", "<leader>xx", function()
+        builtin.diagnostics({ bufnr = 0 })
+      end, { desc = "Diagnostics" })
     end,
   },
 
