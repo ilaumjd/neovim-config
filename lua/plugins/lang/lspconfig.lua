@@ -12,7 +12,6 @@ return {
 
       -- Keymaps
       vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
-      vim.keymap.set("n", "<leader>xq", vim.diagnostic.setloclist, { desc = "Quickfix Diagnostics" })
 
       -- Show diagnostic on hover
       vim.api.nvim_create_autocmd("CursorHold", {
