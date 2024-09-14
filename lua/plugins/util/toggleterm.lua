@@ -27,10 +27,10 @@ return {
     })
 
     local toggle_horizontal = function()
-      toggleterm.toggle(1, nil, vim.fn.getcwd(), "horizontal")
+      toggleterm.toggle(111, nil, vim.fn.getcwd(), "horizontal")
     end
     local toggle_float = function()
-      toggleterm.toggle(2, nil, vim.fn.getcwd(), "float")
+      toggleterm.toggle(222, nil, vim.fn.getcwd(), "float")
     end
 
     vim.keymap.set("n", "<C-/>", toggle_horizontal, { desc = "Toggle horizontal terminal" })
@@ -45,12 +45,21 @@ return {
       local opts = { buffer = 0 }
       vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
       vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
-      vim.keymap.set("t", "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
-      vim.keymap.set("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
-      vim.keymap.set("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
-      vim.keymap.set("t", "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
-      vim.keymap.set("t", "<C-/>", toggle_horizontal, opts)
-      vim.keymap.set("t", "<C-?>", toggle_float, opts)
+
+      vim.keymap.set({ "t", "n" }, "<C-h>", [[<Cmd>wincmd h<CR>]], opts)
+      vim.keymap.set({ "t", "n" }, "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+      vim.keymap.set({ "t", "n" }, "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+      vim.keymap.set({ "t", "n" }, "<C-l>", [[<Cmd>wincmd l<CR>]], opts)
+
+      if string.match(bufname, "111") then
+        vim.keymap.set({ "t", "n" }, "<C-/>", toggle_horizontal, opts)
+        vim.keymap.set({ "t", "n" }, "<C-?>", toggle_horizontal, opts)
+        vim.keymap.set("n", "q", toggle_horizontal, opts)
+      elseif string.match(bufname, "222") then
+        vim.keymap.set({ "t", "n" }, "<C-/>", toggle_float, opts)
+        vim.keymap.set({ "t", "n" }, "<C-?>", toggle_float, opts)
+        vim.keymap.set("n", "q", toggle_float, opts)
+      end
     end
 
     vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
