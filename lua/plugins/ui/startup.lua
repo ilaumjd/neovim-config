@@ -36,6 +36,7 @@ return {
           { " Recent Files", "Telescope oldfiles", "r" },
           { "󰺮 Find Text", "Telescope live_grep", "g" },
           { "󰙅 Explorer", "NvimTreeToggle", "e" },
+          { "󰒲 Lazy", "Lazy", "l" },
           { "󰩈 Quit", "qa", "q" },
         },
         highlight = "String",
