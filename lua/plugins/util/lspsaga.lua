@@ -6,18 +6,26 @@ return {
   },
   event = "LspAttach",
   config = function()
-    require("lspsaga").setup({})
+    require("lspsaga").setup({
+      symbol_in_winbar = {
+        enable = false,
+      },
+      lightbulb = {
+        enable = false,
+      },
+    })
 
     local map = vim.keymap.set
 
-    -- Hover
+    -- Peek
     map("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Documentation" })
-    map("n", "J", "<cmd>Lspsaga peek_type_definition<CR>", { desc = "Peek Type Definition" })
+    map("n", "J", "<cmd>Lspsaga peek_definition<CR>", { desc = "Peek Definition" })
+    map("n", "U", "<cmd>Lspsaga peek_type_definition<CR>", { desc = "Peek Type Definition" })
 
     -- Go to
     map("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { desc = "Go to Definition" })
+    map("n", "gy", "<cmd>Lspsaga goto_type_definition<CR>", { desc = "Go to Type Definition" })
     map("n", "gr", "<cmd>Lspsaga finder<CR>", { desc = "LSP Finder" })
-    map("n", "gy", "<cmd>Lspsaga goto_type_definition<CR>", { desc = "LSP Finder" })
 
     -- Code
     map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
