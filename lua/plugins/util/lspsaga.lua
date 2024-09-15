@@ -29,7 +29,8 @@ return {
 
     -- Code
     map("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", { desc = "Code Action" })
-    map("n", "<leader>cm", "<cmd>Lspsaga outline<CR>", { desc = "Code Map Outline" })
+    map("n", "<leader>cm", "<cmd>Lspsaga outline<CR>", { desc = "Code Outline" })
+    map("n", "<leader>cb", "<cmd>Lspsaga winbar_toggle<CR>", { desc = "Toggle Winbar" })
     map("n", "<leader>ci", "<cmd>Lspsaga incoming_calls<CR>", { desc = "Incoming Calls" })
     map("n", "<leader>co", "<cmd>Lspsaga outgoing_calls<CR>", { desc = "Outgoing Calls" })
 
