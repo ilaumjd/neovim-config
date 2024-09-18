@@ -1,14 +1,18 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "hrsh7th/nvim-cmp",
+    },
     config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
       local lspconfig = require("lspconfig")
-      lspconfig.clangd.setup({})
-      lspconfig.eslint.setup({})
-      lspconfig.lua_ls.setup({})
-      lspconfig.nil_ls.setup({})
-      lspconfig.rust_analyzer.setup({})
-      lspconfig.ts_ls.setup({})
+      lspconfig.clangd.setup({ capabilities = capabilities })
+      lspconfig.eslint.setup({ capabilities = capabilities })
+      lspconfig.lua_ls.setup({ capabilities = capabilities })
+      lspconfig.nil_ls.setup({ capabilities = capabilities })
+      lspconfig.rust_analyzer.setup({ capabilities = capabilities })
+      lspconfig.ts_ls.setup({ capabilities = capabilities })
 
       -- Keymaps
       vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { desc = "Rename" })
