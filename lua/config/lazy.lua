@@ -26,6 +26,7 @@ require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "plugins.coding" },
+    { import = "plugins.completion" },
     { import = "plugins.helper" },
     { import = "plugins.lang" },
     { import = "plugins.textobjects" },
