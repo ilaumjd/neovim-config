@@ -5,8 +5,8 @@ return {
     miniclue.setup({
       triggers = {
         -- Leader triggers
-        { mode = "n", keys = "<Leader>" },
-        { mode = "x", keys = "<Leader>" },
+        { mode = "n", keys = "<leader>" },
+        { mode = "x", keys = "<leader>" },
 
         -- Built-in completion
         { mode = "i", keys = "<C-x>" },
@@ -36,7 +36,7 @@ return {
       },
 
       clues = {
-        -- Enhance this by adding descriptions for <Leader> mapping groups
+        -- Enhance this by adding descriptions for <leader> mapping groups
         miniclue.gen_clues.builtin_completion(),
         miniclue.gen_clues.g(),
         miniclue.gen_clues.marks(),
