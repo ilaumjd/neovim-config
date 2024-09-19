@@ -44,6 +44,7 @@ return {
         miniclue.gen_clues.windows(),
         miniclue.gen_clues.z(),
 
+        { mode = "n", keys = "<leader>a", desc = "AI" },
         { mode = "n", keys = "<leader>b", desc = "Buffer" },
         { mode = "n", keys = "<leader>c", desc = "Code" },
         { mode = "n", keys = "<leader>e", desc = "Explorer" },
