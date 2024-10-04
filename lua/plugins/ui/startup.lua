@@ -33,7 +33,11 @@ return {
         content = {
           { "󰱼 Find File", "Telescope find_files", "f" },
           { " New File", "enew", "n" },
-          { " Recent Files", "Telescope oldfiles", "r" },
+          {
+            " Recent Files",
+            "lua require('telescope.builtin').oldfiles({ cwd_only = true })",
+            "r",
+          },
           { "󰺮 Find Text", "Telescope live_grep", "g" },
           { "󱝥 Restore Session", "SessionLoad", "s" },
           { "󰙅 Explorer", "NvimTreeToggle", "e" },

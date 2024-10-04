@@ -35,8 +35,8 @@ return {
       map("n", "<leader>fw", builtin.grep_string, { desc = "Find string" })
       map("n", "<leader>fr", function()
         builtin.oldfiles({ cwd_only = true })
-      end, { desc = "Find recent files (global)" })
-      map("n", "<leader>fR", builtin.oldfiles, { desc = "Find recent files" })
+      end, { desc = "Find recent files" })
+      map("n", "<leader>fR", builtin.oldfiles, { desc = "Find recent files (global)" })
 
       -- Helpers
       map("n", "<leader>fb", builtin.buffers, { desc = "Buffers" })
