@@ -12,6 +12,8 @@ return {
         ensure_installed = {
           -- c
           "clangd",
+          -- go
+          "gopls",
           -- javascript
           "eslint",
           "ts_ls",

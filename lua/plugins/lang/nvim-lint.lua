@@ -7,6 +7,7 @@ return {
   config = function()
     local lint = require("lint")
     lint.linters_by_ft = {
+      go = { "golangcilint" },
       nix = { "nix" },
       rust = { "clippy" },
       swift = { "swiftlint" },

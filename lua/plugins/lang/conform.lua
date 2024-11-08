@@ -15,6 +15,7 @@ return {
   opts = {
     formatters_by_ft = {
       c = { "clang_format" },
+      go = { "gofmt" },
       lua = { "stylua" },
       nix = { "nixfmt" },
       eruby = { "erb_format" },
