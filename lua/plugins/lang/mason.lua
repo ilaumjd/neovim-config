@@ -10,12 +10,20 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          -- c
           "clangd",
+          -- javascript
           "eslint",
-          "lua_ls",
-          "nil_ls",
-          "rust_analyzer",
           "ts_ls",
+          -- lua
+          "lua_ls",
+          -- nix
+          "nil_ls",
+          -- ruby
+          "rubocop",
+          "solargraph",
+          -- rust
+          "rust_analyzer",
         },
         automatic_installation = true,
       })

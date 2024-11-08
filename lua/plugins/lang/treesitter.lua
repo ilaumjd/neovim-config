@@ -8,6 +8,7 @@ return {
         ensure_installed = {
           "lua",
           "nix",
+          "ruby",
           "rust",
           "swift",
           "javascript",

@@ -17,6 +17,8 @@ return {
       c = { "clang_format" },
       lua = { "stylua" },
       nix = { "nixfmt" },
+      eruby = { "erb_format" },
+      ruby = { "rubocop" },
       rust = { "rustfmt" },
       swift = { "swiftformat" },
       javascript = { "prettier" },

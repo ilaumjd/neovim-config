@@ -11,6 +11,8 @@ return {
       lspconfig.eslint.setup({ capabilities = capabilities })
       lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.nil_ls.setup({ capabilities = capabilities })
+      lspconfig.rubocop.setup({ capabilities = capabilities })
+      lspconfig.solargraph.setup({ capabilities = capabilities })
       lspconfig.rust_analyzer.setup({ capabilities = capabilities })
       lspconfig.ts_ls.setup({ capabilities = capabilities })
 
