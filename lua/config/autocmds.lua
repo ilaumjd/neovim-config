@@ -10,9 +10,6 @@ vim.cmd([[
   augroup END
 ]])
 
------- DISABLE DEFAULT KEYMAP ------
-vim.cmd("map q <Nop>")
-
 ------ STARTER ------
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()

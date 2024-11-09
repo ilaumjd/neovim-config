@@ -23,7 +23,22 @@ opt.linebreak = true
 opt.scrolloff = 5
 opt.sidescrolloff = 8
 
--- DIAGNOSTIC
+------ MACRO ------
+local macro_enabled = false
+vim.cmd("map q <Nop>")
+vim.keymap.set("n", "<leader>cq", function()
+  if macro_enabled then
+    vim.cmd("map q <Nop>")
+    macro_enabled = false
+    vim.notify("Macro recording disabled")
+  else
+    vim.cmd("unmap q")
+    macro_enabled = true
+    vim.notify("Macro recording enabled")
+  end
+end, { desc = "Toggle macro" })
+
+------ DIAGNOSTIC ------
 vim.diagnostic.config({
   virtual_text = false,
 })
