@@ -13,12 +13,6 @@ map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to lower window" })
 map("n", "<C-k>", "<C-w>k", { desc = "Move to upper window" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
-map("n", "<S-h>", "<Cmd>BufferPrevious<CR>", { desc = "Previous buffer" })
-map("n", "<S-l>", "<Cmd>BufferNext<CR>", { desc = "Next buffer" })
-map("n", "<leader>bh", "<Cmd>BufferMovePrevious<CR>", { desc = "Move to previous" })
-map("n", "<leader>bl", "<Cmd>BufferMoveNext<CR>", { desc = "Move to next" })
-map("n", "<leader>bd", "<Cmd>BufferClose<CR>", { desc = "Close current buffer" })
-map("n", "<leader>bo", "<Cmd>BufferCloseAllButCurrent<CR>", { desc = "Close other buffers" })
 map("n", "<leader>ch", ":nohl<CR>", { desc = "Clear highlights" })
 
 ------ VISUAL BLOCK ------
