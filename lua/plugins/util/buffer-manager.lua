@@ -3,5 +3,9 @@ return {
   config = function()
     require("buffer_manager").setup({})
   end,
-  keys = { { "H", "<Cmd>lua require('buffer_manager.ui').toggle_quick_menu()<CR>", desc = "Open bufferlist" } },
+  keys = {
+    { "J", "<Cmd>lua require('buffer_manager.ui').toggle_quick_menu()<CR>", desc = "Open bufferlist" },
+    { "H", "<Cmd>lua require('buffer_manager.ui').nav_prev()<CR>", desc = "Open bufferlist" },
+    { "L", "<Cmd>lua require('buffer_manager.ui').nav_next()<CR>", desc = "Open bufferlist" },
+  },
 }

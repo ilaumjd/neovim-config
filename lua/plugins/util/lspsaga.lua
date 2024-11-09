@@ -19,8 +19,6 @@ return {
 
     -- Peek
     map("n", "K", "<cmd>Lspsaga hover_doc<CR>", { desc = "Hover Documentation" })
-    map("n", "J", "<cmd>Lspsaga peek_definition<CR>", { desc = "Peek Definition" })
-    map("n", "U", "<cmd>Lspsaga peek_type_definition<CR>", { desc = "Peek Type Definition" })
 
     -- Go to
     map("n", "gd", "<cmd>Lspsaga goto_definition<CR>", { desc = "Go to Definition" })
