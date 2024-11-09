@@ -70,30 +70,6 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- Close some filetypes with <q>
-vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("close_with_q"),
-  pattern = {
-    "PlenaryTestPopup",
-    "help",
-    "lspinfo",
-    "man",
-    "notify",
-    "qf",
-    "spectre_panel",
-    "startuptime",
-    "tsplayground",
-    "neotest-output",
-    "checkhealth",
-    "neotest-summary",
-    "neotest-output-panel",
-  },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-  end,
-})
-
 -- Wrap and check for spell in text filetypes
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("wrap_spell"),
@@ -144,5 +120,26 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function(ev)
     vim.b.minianimate_disable = true
     vim.opt_local.syntax = vim.filetype.match({ buf = ev.buf }) or ""
+  end,
+})
+
+-- Close some filetypes with <q>
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("close_with_q"),
+  pattern = {
+    -- default
+    "checkhealth",
+    "help",
+    "lspinfo",
+    "man",
+    "notify",
+    "qf",
+
+    -- plugin
+    "TelescopePrompt",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>q!<cr>", { buffer = event.buf, silent = true })
   end,
 })
