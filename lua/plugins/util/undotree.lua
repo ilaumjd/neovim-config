@@ -6,8 +6,6 @@ return {
       layout = "left_left_bottom",
       position = "left",
     })
+    vim.keymap.set("n", "<leader>cu", "<cmd>lua require('undotree').toggle()<cr>", { desc = "Toggle undotree" })
   end,
-  keys = {
-    { "<leader>cu", "<cmd>lua require('undotree').toggle()<cr>" },
-  },
 }
