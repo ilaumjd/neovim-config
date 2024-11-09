@@ -6,6 +6,9 @@ return {
       default_file_explorer = true,
       delete_to_trash = true,
       skip_confirm_for_simple_edits = true,
+      keymaps = {
+        ["q"] = "actions.close",
+      },
     })
 
     vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Oil" })
