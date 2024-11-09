@@ -41,6 +41,15 @@ return {
           { name = "buffer", priority = 1, keyword_length = 3 },
           { name = "codeium", priority = 0 },
         }),
+        enabled = function()
+          local disabled_filetypes = {
+            "oil",
+            "buffer_manager",
+          }
+
+          local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+          return not vim.tbl_contains(disabled_filetypes, filetype)
+        end,
       })
     end,
   },
