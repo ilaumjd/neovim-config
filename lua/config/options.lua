@@ -22,3 +22,12 @@ opt.cursorline = true
 opt.linebreak = true
 opt.scrolloff = 5
 opt.sidescrolloff = 8
+
+-- DIAGNOSTIC
+vim.diagnostic.config({
+  virtual_text = false,
+})
+vim.keymap.set("", "<leader>xv", function()
+  local new_value = not vim.diagnostic.config().virtual_text
+  vim.diagnostic.config({ virtual_text = new_value })
+end, { desc = "Toggle virtual_text" })
