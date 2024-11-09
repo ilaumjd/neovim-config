@@ -11,6 +11,7 @@ return {
           "nix",
           "ruby",
           "rust",
+          "sql",
           "swift",
           "javascript",
           "typescript",

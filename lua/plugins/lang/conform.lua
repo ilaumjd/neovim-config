@@ -21,6 +21,7 @@ return {
       eruby = { "erb_format" },
       ruby = { "rubocop" },
       rust = { "rustfmt" },
+      sql = { "sql_formatter" },
       swift = { "swiftformat" },
       javascript = { "prettier" },
       typescript = { "prettier" },
@@ -34,6 +35,13 @@ return {
     format_on_save = {
       timeout_ms = 500,
       lsp_fallback = true,
+    },
+    formatters = {
+      sql_formatter = {
+        inherit = false,
+        command = "sql-formatter",
+        args = { "-l", "postgresql" },
+      },
     },
   },
   init = function()
