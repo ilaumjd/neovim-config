@@ -50,6 +50,7 @@ return {
         { mode = "n", keys = "<leader>e", desc = "Explorer" },
         { mode = "n", keys = "<leader>f", desc = "Find" },
         { mode = "n", keys = "<leader>g", desc = "Git" },
+        { mode = "n", keys = "<leader>u", desc = "URL" },
         { mode = "n", keys = "<leader>x", desc = "Diagnostics" },
       },
     })
