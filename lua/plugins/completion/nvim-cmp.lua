@@ -45,6 +45,7 @@ return {
           local disabled_filetypes = {
             "oil",
             "buffer_manager",
+            "TelescopePrompt",
           }
 
           local filetype = vim.api.nvim_buf_get_option(0, "filetype")
