@@ -143,3 +143,25 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("n", "q", "<cmd>q!<cr>", { buffer = event.buf, silent = true })
   end,
 })
+
+-- Close buffers with specific name patterns with <q>
+vim.api.nvim_create_autocmd({ "BufAdd", "BufCreate", "BufFilePost" }, {
+  group = augroup("close_with_q_names"),
+  callback = function(event)
+    local patterns = {
+      "^Curl output",
+      "curl$",
+    }
+
+    local buf_name = vim.fn.bufname(event.buf)
+    if buf_name then
+      for _, pattern in ipairs(patterns) do
+        if buf_name:match(pattern) then
+          vim.bo[event.buf].buflisted = false
+          vim.keymap.set("n", "q", "<cmd>q!<cr>", { buffer = event.buf, silent = true })
+          break
+        end
+      end
+    end
+  end,
+})
