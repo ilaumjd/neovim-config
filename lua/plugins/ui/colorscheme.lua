@@ -1,10 +1,10 @@
 return {
   {
-    "gbprod/nord.nvim",
+    "rose-pine/neovim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme nord]])
+      vim.cmd([[colorscheme rose-pine]])
     end,
   },
 }
