@@ -1,0 +1,52 @@
+* {
+  all: unset;
+  font-family: "MesloLGM Nerd Font", monospace;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+$base: #191724;
+$primary: #f6c177;
+$secondary: #9ccfd8;
+$tertiary: #eb6f92;
+
+.bar {
+  background-color: $base;
+  padding-right: 10px;
+}
+
+.workspaces {
+  button {
+    color: $tertiary;
+    padding: 0 20px;
+    
+    &:hover {
+      color: $primary;
+    }
+  }
+  
+  button.current {
+    background-color: $primary;
+    color: $base;
+  }
+}
+
+.separator {
+  color: $primary;
+  margin: 0 20px;
+}
+
+.title {
+  color: $secondary;
+  margin: 0 20px;
+}
+
+.time {
+  color: $primary;
+  margin: 0 20px;
+}
+
+.shutdown {
+  color: $tertiary;
+  margin: 0 20px;
+}
