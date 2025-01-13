@@ -34,13 +34,26 @@ configuration {
 window {
     transparency: "real";
     text-color: @primary;
+    background-color: @base;
     border: 2px;
-    border-radius: 12px;
+    border-radius: 10px;
     border-color: @tertiary;
     width: 25%;
     padding: 8px;
     location: center;
     anchor: center;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 8px;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    padding: 12px;
 }
 
 prompt {
@@ -53,11 +66,6 @@ entry {
     text-color: @primary;
 }
 
-inputbar {
-    children: [ prompt, entry ];
-    padding: 12px;
-}
-
 listview {
     columns: 1;
     lines: 5;
@@ -67,16 +75,10 @@ listview {
     layout: vertical;
 }
 
-mainbox {
-    children: [ inputbar, listview ];
-    spacing: 8px;
-    padding: 8px;
-}
-
 element {
-    margin: 2px;
+    children: [ element-text, element-icon ];
     border-radius: 8px;
-    padding: 6px 0px;
+    padding: 6px 12px;
 }
 
 element selected {
@@ -85,7 +87,7 @@ element selected {
 
 element-icon {
     size: 30px;
-    padding: 0px 8px;
+    padding: 0px 10px;
 }
 
 element-icon selected {
