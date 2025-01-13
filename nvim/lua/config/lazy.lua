@@ -29,6 +29,7 @@ require("lazy").setup({
     { import = "plugins.coding" },
     { import = "plugins.completion" },
     { import = "plugins.lang" },
+    { import = "plugins.navigation" },
     { import = "plugins.textobjects" },
     { import = "plugins.ui" },
     { import = "plugins.util" },
