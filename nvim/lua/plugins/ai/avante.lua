@@ -2,7 +2,14 @@ return {
   "yetone/avante.nvim",
   event = "VeryLazy",
   lazy = false,
-  opts = {},
+  version = false,
+  opts = {
+    mappings = {
+      submit = {
+        insert = "<C-a>",
+      },
+    },
+  },
   build = "make",
   dependencies = {
     "stevearc/dressing.nvim",
