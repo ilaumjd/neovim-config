@@ -1,13 +1,103 @@
 configuration {
   modes: [window,drun,run,ssh,combi];
   combi-modes: [window,drun];
-  kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
+  font: "MesloLGM Nerd Font Bold 16";
+  show-icons: true;
+  icon-theme: "Papirus";
+  drun-display-format: "{name}";
+  combi-display-format: "{text}";
+  disable-history: false;
+  sidebar-mode: false;
+  
+  kb-row-up: "Up,Control+k";
   kb-row-down: "Down,Control+j";
-  kb-accept-entry: "Control+m,Return,KP_Enter";
-  terminal: "mate-terminal";
+  kb-accept-entry: "Return,KP_Enter";
   kb-remove-to-eol: "Control+Shift+e";
-  kb-mode-next: "Shift+Right,Control+Tab,Control+l";
-  kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
-  kb-mode-complete: "";
+  kb-mode-next: "Control+Tab";
+  kb-mode-previous: "Control+Shift+Tab";
   kb-remove-char-back: "BackSpace";
+}
+
+@theme "/dev/null"
+
+* {
+    /* Colors */
+    base: #191724;
+    primary: #f8d19a;
+    secondary: #b5dce3;
+    tertiary: #f194ad;
+    
+    background-color: @base;
+    text-color: @secondary;
+}
+
+window {
+    transparency: "real";
+    text-color: @primary;
+    border: 2px;
+    border-radius: 12px;
+    border-color: @tertiary;
+    width: 25%;
+    padding: 8px;
+    location: center;
+    anchor: center;
+}
+
+prompt {
+    enabled: false;
+}
+
+entry {
+    placeholder: "Search";
+    placeholder-color: @tertiary;
+    text-color: @primary;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    padding: 12px;
+}
+
+listview {
+    columns: 1;
+    lines: 5;
+    spacing: 4px;
+    cycle: true;
+    dynamic: true;
+    layout: vertical;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 8px;
+    padding: 8px;
+}
+
+element {
+    margin: 2px;
+    border-radius: 8px;
+    padding: 6px 0px;
+}
+
+element selected {
+    background-color: @primary;
+}
+
+element-icon {
+    size: 30px;
+    padding: 0px 8px;
+}
+
+element-icon selected {
+    background-color: @primary;
+}
+
+element-text {
+    expand: true;
+    vertical-align: 0.5;
+}
+
+element-text selected {
+    background-color: @primary;
+    text-color: @base;
 }
