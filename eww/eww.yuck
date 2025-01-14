@@ -21,7 +21,7 @@
          :space-evenly false
          :hexpand true
       (w_time)
-      (w_shutdown))))
+      (w_power))))
 
 (defwidget w_workspaces []
   (box :class "workspaces"
@@ -54,7 +54,7 @@
 (defpoll time :interval "1s"
   "date '+%H:%M:%S'")
 
-(defwidget w_shutdown []
-    (button :class "shutdown"
-            :onclick "shutdown now"
+(defwidget w_power []
+    (button :class "power"
+            :onclick "i3lock"
       "⏻"))
