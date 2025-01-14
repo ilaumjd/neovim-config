@@ -11,4 +11,5 @@ elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     ln -s "$DOTFILES_DIR/picom" ~/.config/picom
     ln -s "$DOTFILES_DIR/rofi" ~/.config/rofi
     ln -s "$DOTFILES_DIR/scripts" ~/.config/scripts
+    ln -s "$DOTFILES_DIR/wallpapers" ~/.config/wallpapers
 fi
