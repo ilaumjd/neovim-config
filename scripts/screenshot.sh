@@ -21,13 +21,6 @@ take_screenshot() {
             opts="-u"
             type="Active Window"
             ;;
-        *)
-            echo "Usage: $0 [full|select|window]"
-            echo "  full    - Take full screen screenshot"
-            echo "  select  - Take screenshot of selected area"
-            echo "  window  - Take screenshot of active window"
-            exit 1
-            ;;
     esac
 
     scrot $opts 'screenshot_%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures' && \

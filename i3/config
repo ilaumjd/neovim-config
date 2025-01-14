@@ -20,9 +20,9 @@ bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # Helpers
-bindsym $mod+space exec rofi -show combi
-bindsym $mod+Shift+Escape exec rofi -show menu -modi "menu:rofi-power-menu --choices=suspend/shutdown/reboot/lockscreen/logout"
-bindsym $mod+d exec --no-startup-id "dmenu_run -nf '#BBBBBB' -nb '#222222' -sb '#005577' -sf '#EEEEEE' -fn 'monospace-10'"
+bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+space exec --no-startup-id ~/.config/scripts/rofi.sh launcher
+bindsym $mod+Shift+Escape exec --no-startup-id ~/.config/scripts/rofi.sh power
 bindsym $mod+0x27 exec --no-startup-id ~/.config/scripts/screenshot.sh full
 bindsym $mod+Shift+0x27 exec --no-startup-id ~/.config/scripts/screenshot.sh select
 bindsym $mod+Ctrl+0x27 exec --no-startup-id ~/.config/scripts/screenshot.sh window
