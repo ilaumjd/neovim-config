@@ -1,0 +1,18 @@
+.volume {
+  background-color: $base;
+  padding: 0 20px;
+  border: 1px solid $overlay;
+}
+
+.volume trough {
+    background-color: $overlay;
+    border-radius: 3px;
+    min-height: 6px;
+    min-width: 130px;
+}
+
+.volume highlight {
+    background-color: $primary;
+    border-radius: 5px;
+}
+

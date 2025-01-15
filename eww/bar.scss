@@ -1,0 +1,46 @@
+.bar {
+  background-color: $base;
+  padding-right: 10px;
+  border: 1px solid $overlay;
+}
+
+.workspaces {
+  button {
+    color: $tertiary;
+    padding: 0 20px;
+    
+    &:hover {
+      color: $primary;
+    }
+  }
+  
+  button.current {
+    background-color: $primary;
+    color: $base;
+  }
+}
+
+.separator {
+  color: $primary;
+  margin: 0 20px;
+}
+
+.title {
+  color: $secondary;
+  margin: 0 20px;
+}
+
+.bluetooth {
+  color: $secondary;
+  margin: 0 20px;
+}
+
+.time {
+  color: $primary;
+  margin: 0 20px;
+}
+
+.power {
+  color: $tertiary;
+  margin: 0 20px;
+}
