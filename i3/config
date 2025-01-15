@@ -9,9 +9,13 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 exec --no-startup-id eww daemon
 exec --no-startup-id eww open bar
+exec --no-startup-id setxkbmap -option caps:escape
 exec_always --no-startup-id feh --bg-fill --randomize ~/.config/wallpapers
 
-for_window [class="^.*"] border pixel 2
+# Style
+for_window [class="^.*"] border pixel 1
+gaps inner 10px
+gaps outer 0px
 
 # Mouse
 floating_modifier $mod
