@@ -20,6 +20,7 @@
     (box :halign "end"
          :space-evenly false
          :hexpand true
+      (w_volume_button)
       (w_bluetooth_button)
       (w_time)
       (w_power))
@@ -53,11 +54,17 @@
 (defpoll title :interval "1s"
   "xdotool getwindowfocus getwindowname")
 
+;; VOLUME
+(defwidget w_volume_button []
+    (eventbox :onclick "eww open volume"
+      (label :class "volume_button_label"
+             :text {volume < 35 ? "󰕿" : "${volume < 65 ? "󰖀" : "󰕾"}"})))
+
 ;; BLUETOOTH
 (defwidget w_bluetooth_button []
-    (button :class "bluetooth_button"
-            :onclick "eww open bluetooth"
-      (label :text {bluetooth_status == "yes" ? "󰂱" : "󰂯"})))
+    (eventbox :onclick "eww open bluetooth"
+      (label :class "bluetooth_button"
+             :text {bluetooth_status == "yes" ? "󰂱" : "󰂯"})))
 
 (defpoll bluetooth_status :interval "1s"
   "~/.config/scripts/bluetooth.sh is-connected")
@@ -65,7 +72,6 @@
 ;; TIME
 (defwidget w_time []
   (eventbox :class "time"
-    :onhover "eww open volume"
     time))
 
 (defpoll time :interval "1s"
