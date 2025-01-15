@@ -20,7 +20,7 @@
     (box :halign "end"
          :space-evenly false
          :hexpand true
-      (w_bluetooth)
+      (w_bluetooth_button)
       (w_time)
       (w_power))
     (w_fake)))
@@ -54,16 +54,13 @@
   "xdotool getwindowfocus getwindowname")
 
 ;; BLUETOOTH
-(defwidget w_bluetooth []
-    (button :class "bluetooth"
-            :onclick "bluetoothctl ${bluetooth_status == "yes" ? "disconnect" : "connect"} E8:EE:CC:25:D2:C9"
-      (label :text {bluetooth_status == "yes" ? "󰂱 ${bluetooth_device}" : "󰂯"})))
+(defwidget w_bluetooth_button []
+    (button :class "bluetooth_button"
+            :onclick "eww open bluetooth"
+      (label :text {bluetooth_status == "yes" ? "󰂱" : "󰂯"})))
 
 (defpoll bluetooth_status :interval "1s"
-  "bluetoothctl info | grep Connected | awk '{print $2}'")
-
-(defpoll bluetooth_device :interval "1s"
-  "bluetoothctl info | grep Name | cut -d ' ' -f 2-")
+  "~/.config/scripts/bluetooth.sh is-connected")
 
 ;; TIME
 (defwidget w_time []

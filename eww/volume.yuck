@@ -6,8 +6,7 @@
                      :width "200px"
                      :height "60px"
                      :anchor "top right")
-  (eventbox 
-    :onhoverlost "eww close volume"
+  (eventbox :onhoverlost "eww close volume"
     (w_volume)))
 
 (defwidget w_volume []

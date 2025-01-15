@@ -1,2 +1,3 @@
 (include "./bar.yuck")
 (include "./volume.yuck")
+(include "./bluetooth.yuck")

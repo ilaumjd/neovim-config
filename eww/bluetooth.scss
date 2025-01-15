@@ -1,0 +1,54 @@
+.bluetooth_window {
+  background-color: $base;
+  border: 1px solid $overlay;
+  padding: 8px;
+}
+  
+.bluetooth_buttons {
+  
+  button {
+    background-color: $primary;
+  }
+}
+
+.scan-button {
+  &.scanning {
+  }
+  
+  &:hover {
+  }
+}
+
+.bluetooth_device {
+  min-height: 30px;
+  margin: 8px 0px;
+  border-radius: 15px;
+  &:hover {
+    background-color: $overlay;
+  }
+}
+
+.bluetooth_device_icon_connected {
+  background-color: $tertiary;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+}
+
+.bluetooth_device_icon_disconnected {
+  background-color: $overlay;
+  min-height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+}
+
+.bluetooth_device_name {
+  color: $primary;
+  margin-left: 8px;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
