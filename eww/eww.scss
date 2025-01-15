@@ -9,6 +9,7 @@ $base: #191724;
 $primary: #f6c177;
 $secondary: #9ccfd8;
 $tertiary: #eb6f92;
+$overlay: #6e6a86;
 
 .bar {
   background-color: $base;
@@ -54,4 +55,23 @@ $tertiary: #eb6f92;
 .power {
   color: $tertiary;
   margin: 0 20px;
+}
+
+.volume trough {
+    background-color: $overlay;
+    border-radius: 3px;
+    min-height: 6px;
+    min-width: 130px;
+}
+
+.volume highlight {
+    background-color: $primary;
+    border-radius: 5px;
+}
+
+.volume slider {
+    background-color: $tertiary;
+    border-radius: 50%;
+    min-height: 6px;
+    min-width: 6px;
 }
