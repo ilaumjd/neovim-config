@@ -1,0 +1,23 @@
+;; Define a variable to track window visibility
+(defwindow volume
+  :monitor 0
+  :geometry (geometry :x "-30px"
+                     :y "60px"
+                     :width "200px"
+                     :height "60px"
+                     :anchor "top right")
+  (eventbox 
+    :onhoverlost "eww close volume"
+    (w_volume)))
+
+(defwidget w_volume []
+  (box :class "volume"
+    (scale :class "volume-scale"
+           :min 0
+           :max 101
+           :value {volume}
+           :onchange "pamixer --set-volume {}")))
+
+(defpoll volume :interval "1s"
+  "pamixer --get-volume")
+

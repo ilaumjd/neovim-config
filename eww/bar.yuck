@@ -1,0 +1,86 @@
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x "0%"
+                      :y "0%"
+                      :width "100%"
+                      :height "50px"
+                      :anchor "top center")
+  :stacking "fg"
+  :wm-ignore false
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  (w_bar))
+
+(defwidget w_bar []
+  (box :class "bar"
+       :space-evenly false
+    (w_workspaces)
+    (w_separator)
+    (w_title)
+    (box :halign "end"
+         :space-evenly false
+         :hexpand true
+      (w_bluetooth)
+      (w_time)
+      (w_power))
+    (w_fake)))
+
+;; WORKSPACES
+(defwidget w_workspaces []
+  (box :class "workspaces"
+       :space-evenly true
+    (for i in workspaces
+      (button :class "${current_workspace == i ? 'current' : ''}"
+              :onclick "i3-msg workspace ${i}" 
+        i))))
+
+(defpoll current_workspace :interval "0.1s"
+  "i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name'")
+
+(defpoll workspaces :interval "0.1s"
+  "i3-msg -t get_workspaces | jq -r '[.[].name] | @json'")
+
+;; SEPARATOR
+(defwidget w_separator []
+  (box :class "separator"
+    "󱄅"))
+
+;; TITLE
+(defwidget w_title []
+  (box :class "title"
+    title))
+
+(defpoll title :interval "1s"
+  "xdotool getwindowfocus getwindowname")
+
+;; BLUETOOTH
+(defwidget w_bluetooth []
+    (button :class "bluetooth"
+            :onclick "bluetoothctl ${bluetooth_status == "yes" ? "disconnect" : "connect"} E8:EE:CC:25:D2:C9"
+      (label :text {bluetooth_status == "yes" ? "󰂱 ${bluetooth_device}" : "󰂯"})))
+
+(defpoll bluetooth_status :interval "1s"
+  "bluetoothctl info | grep Connected | awk '{print $2}'")
+
+(defpoll bluetooth_device :interval "1s"
+  "bluetoothctl info | grep Name | cut -d ' ' -f 2-")
+
+;; TIME
+(defwidget w_time []
+  (eventbox :class "time"
+    :onhover "eww open volume"
+    time))
+
+(defpoll time :interval "1s"
+  "date '+%H:%M:%S'")
+
+;; POWER
+(defwidget w_power []
+    (button :class "power"
+            :onclick "i3lock"
+      "⏻"))
+
+;; INVISIBLE WIDGET
+(defwidget w_fake []
+  (box :visible false
+    current_workspace))

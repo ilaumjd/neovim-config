@@ -42,6 +42,12 @@ $overlay: #6e6a86;
   margin: 0 20px;
 }
 
+.volume {
+  background-color: $base;
+  padding: 0 20px;
+  border: 1px solid $overlay;
+}
+
 .volume trough {
     background-color: $overlay;
     border-radius: 3px;
@@ -52,13 +58,6 @@ $overlay: #6e6a86;
 .volume highlight {
     background-color: $primary;
     border-radius: 5px;
-}
-
-.volume slider {
-    background-color: $tertiary;
-    border-radius: 50%;
-    min-height: 6px;
-    min-width: 6px;
 }
 
 .bluetooth {
