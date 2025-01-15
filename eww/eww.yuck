@@ -26,6 +26,7 @@
       (w_power))
     (w_fake)))
 
+;; WORKSPACES
 (defwidget w_workspaces []
   (box :class "workspaces"
        :space-evenly true
@@ -40,10 +41,12 @@
 (defpoll workspaces :interval "0.1s"
   "i3-msg -t get_workspaces | jq -r '[.[].name] | @json'")
 
+;; SEPARATOR
 (defwidget w_separator []
   (box :class "separator"
     "󱄅"))
 
+;; TITLE
 (defwidget w_title []
   (box :class "title"
     title))
@@ -51,6 +54,7 @@
 (defpoll title :interval "1s"
   "xdotool getwindowfocus getwindowname")
 
+;; VOLUME
 (defwidget w_volume []
   (box :class "volume"
     (scale :class "volume-scale"
@@ -62,6 +66,7 @@
 (defpoll volume :interval "1s"
   "pamixer --get-volume")
 
+;; BLUETOOTH
 (defwidget w_bluetooth []
     (button :class "bluetooth"
             :onclick "bluetoothctl ${bluetooth_status == "yes" ? "disconnect" : "connect"} E8:EE:CC:25:D2:C9"
@@ -73,6 +78,7 @@
 (defpoll bluetooth_device :interval "1s"
   "bluetoothctl info | grep Name | cut -d ' ' -f 2-")
 
+;; TIME
 (defwidget w_time []
   (box :class "time"
     time))
@@ -80,11 +86,13 @@
 (defpoll time :interval "1s"
   "date '+%H:%M:%S'")
 
+;; POWER
 (defwidget w_power []
     (button :class "power"
             :onclick "i3lock"
       "⏻"))
 
+;; INVISIBLE WIDGET
 (defwidget w_fake []
   (box :visible false
     current_workspace))
