@@ -5,7 +5,7 @@ font pango:MesloLGL Nerd Font 14
 # Startup
 exec --no-startup-id picom
 exec --no-startup-id dex-autostart --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xidlehook --not-when-fullscreen --not-when-audio --timer 600 'i3lock' '' --timer 1800 'systemctl suspend' ''
 exec --no-startup-id nm-applet
 exec --no-startup-id eww daemon
 exec --no-startup-id eww open bar
