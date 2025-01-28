@@ -6,9 +6,12 @@
                       :height "50px"
                       :anchor "top center")
   :stacking "fg"
+  ;; x11
   :wm-ignore false
   :reserve (struts :distance "40px" :side "top")
   :windowtype "dock"
+  ;; wayland
+  :exclusive true
   (w_bar))
 
 (defwidget w_bar []
@@ -32,14 +35,17 @@
        :space-evenly true
     (for i in workspaces
       (button :class "${current_workspace == i ? 'current' : ''}"
-              :onclick "i3-msg workspace ${i}" 
+              ;;:onclick "i3-msg workspace ${i}" 
+              :onclick "hyprctl dispatch workspace ${i}" 
         i))))
 
 (defpoll current_workspace :interval "0.1s"
-  "i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name'")
+  ;;"i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name'")
+  "hyprctl activeworkspace -j | jq -r .id")
 
 (defpoll workspaces :interval "0.1s"
-  "i3-msg -t get_workspaces | jq -r '[.[].name] | @json'")
+  ;;"i3-msg -t get_workspaces | jq -r '[.[].name] | @json'")
+  "hyprctl workspaces -j | jq -r 'sort_by(.id) | [.[].id] | @json'")
 
 ;; SEPARATOR
 (defwidget w_separator []
@@ -52,7 +58,8 @@
     title))
 
 (defpoll title :interval "1s"
-  "xdotool getwindowfocus getwindowname")
+  ;;"xdotool getwindowfocus getwindowname")
+  "hyprctl activeworkspace -j | jq -r .lastwindowtitle")
 
 ;; VOLUME
 (defwidget w_volume_button []
@@ -80,7 +87,7 @@
 ;; POWER
 (defwidget w_power []
     (button :class "power"
-            :onclick "i3lock"
+            :onclick "~/.config/scripts/rofi.sh power"
       "⏻"))
 
 ;; INVISIBLE WIDGET

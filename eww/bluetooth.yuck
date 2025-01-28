@@ -1,6 +1,7 @@
 (defwindow bluetooth
-  :geometry (geometry :x "-30px"
-                     :y "50px"
+  :monitor 0
+  :geometry (geometry :x "30px"
+                     :y "0px"
                      :width "300px"
                      :height "0px"
                      :anchor "top right")

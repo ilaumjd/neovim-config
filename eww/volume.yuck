@@ -1,8 +1,8 @@
 ;; Define a variable to track window visibility
 (defwindow volume
   :monitor 0
-  :geometry (geometry :x "-30px"
-                     :y "60px"
+  :geometry (geometry :x "30px"
+                     :y "0px"
                      :width "200px"
                      :height "60px"
                      :anchor "top right")

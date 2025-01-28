@@ -6,7 +6,7 @@ rofi_launch() {
     
     case "$mode" in
         "launcher")
-            rofi -show combi
+            rofi -show drun
             ;;
         "power")
             rofi -show menu \
