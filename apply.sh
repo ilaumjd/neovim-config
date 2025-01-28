@@ -7,8 +7,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     ln -s "$DOTFILES_DIR/nvim" ~/.config/nvim
     ln -s "$DOTFILES_DIR/eww" ~/.config/eww
+    ln -s "$DOTFILES_DIR/rofi" ~/.config/rofi
+
+    # x11
     ln -s "$DOTFILES_DIR/i3" ~/.config/i3
     ln -s "$DOTFILES_DIR/picom" ~/.config/picom
-    ln -s "$DOTFILES_DIR/rofi" ~/.config/rofi
+
+    # wayland
+    ln -s "$DOTFILES_DIR/hypr" ~/.config/hypr
+     
+    # scripts
     ln -s "$DOTFILES_DIR/iam" ~/.config/iam
 fi
