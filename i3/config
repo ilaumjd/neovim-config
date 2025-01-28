@@ -10,7 +10,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id eww daemon
 exec --no-startup-id eww open bar
 exec --no-startup-id setxkbmap -option caps:escape
-exec_always --no-startup-id feh --bg-fill --randomize ~/.config/wallpapers
+exec_always --no-startup-id feh --bg-fill --randomize ~/.config/iam/wallpapers
 
 # Style
 for_window [class="^.*"] border pixel 1
@@ -26,11 +26,11 @@ bindsym $mod+Shift+Return exec i3-sensible-terminal
 
 # Helpers
 bindsym $mod+d exec --no-startup-id dmenu_run
-bindsym $mod+space exec --no-startup-id ~/.config/scripts/rofi.sh launcher
-bindsym $mod+Shift+Escape exec --no-startup-id ~/.config/scripts/rofi.sh power
-bindsym $mod+0x27 exec --no-startup-id ~/.config/scripts/screenshot.sh full
-bindsym $mod+Shift+0x27 exec --no-startup-id ~/.config/scripts/screenshot.sh select
-bindsym $mod+Ctrl+0x27 exec --no-startup-id ~/.config/scripts/screenshot.sh window
+bindsym $mod+space exec --no-startup-id ~/.config/iam/scripts/rofi.sh launcher
+bindsym $mod+Shift+Escape exec --no-startup-id ~/.config/iam/scripts/rofi.sh power
+bindsym $mod+0x27 exec --no-startup-id ~/.config/iam/scripts/screenshot.sh full
+bindsym $mod+Shift+0x27 exec --no-startup-id ~/.config/iam/scripts/screenshot.sh select
+bindsym $mod+Ctrl+0x27 exec --no-startup-id ~/.config/iam/scripts/screenshot.sh window
 
 # i3 system
 bindsym $mod+Shift+q kill

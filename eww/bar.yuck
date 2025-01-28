@@ -74,7 +74,7 @@
              :text {bluetooth_status == "yes" ? "󰂱" : "󰂯"})))
 
 (defpoll bluetooth_status :interval "1s"
-  "~/.config/scripts/bluetooth.sh is-connected")
+  "~/.config/iam/scripts/bluetooth.sh is-connected")
 
 ;; TIME
 (defwidget w_time []
@@ -87,7 +87,7 @@
 ;; POWER
 (defwidget w_power []
     (button :class "power"
-            :onclick "~/.config/scripts/rofi.sh power"
+            :onclick "~/.config/iam/scripts/rofi.sh power"
       "⏻"))
 
 ;; INVISIBLE WIDGET
