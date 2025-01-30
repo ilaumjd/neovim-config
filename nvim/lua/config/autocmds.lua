@@ -3,12 +3,12 @@
 -- Add any additional autocmds here
 
 ------ DISABLE HIGHLGHT AFTER SEARCH ------
-vim.cmd([[
-  augroup disable_highlight_after_search
-    autocmd!
-    autocmd CursorMoved * set nohlsearch
-  augroup END
-]])
+-- vim.cmd([[
+--   augroup disable_highlight_after_search
+--     autocmd!
+--     autocmd CursorMoved * set nohlsearch
+--   augroup END
+-- ]])
 
 ------ STARTER ------
 vim.api.nvim_create_autocmd("VimEnter", {

@@ -23,6 +23,7 @@ return {
       rust = { "rustfmt" },
       sql = { "sql_formatter" },
       swift = { "swiftformat" },
+      toml = { "taplo" },
       javascript = { "prettierd" },
       typescript = { "prettierd" },
       javascriptreact = { "prettierd" },

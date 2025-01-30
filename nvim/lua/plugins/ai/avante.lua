@@ -11,6 +11,10 @@ return {
     },
   },
   build = "make",
+  keys = {
+    { "<leader>apc", "<cmd>AvanteSwitchProvider claude<CR>", desc = "avante: claude" },
+    { "<leader>apo", "<cmd>AvanteSwitchProvider openai<CR>", desc = "avante: openai" },
+  },
   dependencies = {
     "stevearc/dressing.nvim",
     "nvim-lua/plenary.nvim",
