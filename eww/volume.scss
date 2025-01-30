@@ -1,18 +1,18 @@
-.volume {
-  background-color: $base;
+.volume_button_label {
+  font-size: 24px;
+  color: $primary;
   padding: 0 20px;
-  border: 1px solid $overlay;
 }
 
-.volume trough {
+.volume_slider trough {
     background-color: $overlay;
-    border-radius: 3px;
-    min-height: 6px;
+    border-radius: 4px;
+    min-height: 8px;
     min-width: 130px;
 }
 
-.volume highlight {
+.volume_slider highlight {
     background-color: $primary;
-    border-radius: 5px;
+    border-radius: 4px;
 }
 

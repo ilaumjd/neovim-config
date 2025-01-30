@@ -23,7 +23,7 @@
     (box :halign "end"
          :space-evenly false
          :hexpand true
-      (w_volume_button)
+      (w_volume)
       (w_bluetooth_button)
       (w_time)
       (w_power))
@@ -61,12 +61,6 @@
   ;;"xdotool getwindowfocus getwindowname")
   "hyprctl activeworkspace -j | jq -r .lastwindowtitle")
 
-;; VOLUME
-(defwidget w_volume_button []
-    (eventbox :onclick "eww open volume"
-      (label :class "volume_button_label"
-             :text {volume < 35 ? "󰕿" : "${volume < 65 ? "󰖀" : "󰕾"}"})))
-
 ;; BLUETOOTH
 (defwidget w_bluetooth_button []
     (eventbox :onclick "eww open bluetooth"
@@ -78,8 +72,8 @@
 
 ;; TIME
 (defwidget w_time []
-  (eventbox :class "time"
-    time))
+  (label :class "time"
+         :text time))
 
 (defpoll time :interval "1s"
   "date '+%H:%M:%S'")

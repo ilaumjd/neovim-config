@@ -1,22 +1,27 @@
-;; Define a variable to track window visibility
-(defwindow volume
-  :monitor 0
-  :geometry (geometry :x "30px"
-                     :y "0px"
-                     :width "200px"
-                     :height "60px"
-                     :anchor "top right")
-  (eventbox :onhoverlost "eww close volume"
-    (w_volume)))
-
 (defwidget w_volume []
-  (box :class "volume"
+  (eventbox :onhover "eww update _volume_reveal=true"
+            :onhoverlost "eww update _volume_reveal=false"
+    (box :space-evenly false
+      (button :onclick "pamixer --toggle-mute"
+        (label :class "volume_button_label"
+               :text {_muted ? "󰝟" : "${_volume < 35 ? "󰕿" : "${_volume < 65 ? "󰖀" : "󰕾"}"}"}))
+      (revealer :transition "slideright"
+                :reveal _volume_reveal
+        (w_volume_slider)))))
+
+(defvar _volume_reveal false)
+
+(defwidget w_volume_slider []
+  (box :class "volume_slider"
     (scale :class "volume-scale"
            :min 0
            :max 101
-           :value {volume}
-           :onchange "pamixer --set-volume {}")))
+           :value {_volume}
+           :onchange "pamixer --unmute && pamixer --set-volume {}")))
 
-(defpoll volume :interval "1s"
+(defpoll _volume :interval "1s"
   "pamixer --get-volume")
+
+(defpoll _muted :interval "1s"
+  "pamixer --get-mute")
 

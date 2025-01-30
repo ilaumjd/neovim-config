@@ -26,32 +26,26 @@
 
 .separator {
   color: $primary;
-  margin: 0 20px;
+  padding: 0 10px;
 }
 
 .title {
   color: $secondary;
-  margin: 0 20px;
-}
-
-.volume_button_label {
-  font-size: 24px;
-  color: $primary;
-  min-width: 24px;
+  padding: 0 10px;
 }
 
 .bluetooth_button {
   font-size: 20px;
   color: $tertiary;
-  margin: 0 20px;
+  padding: 0 10px;
 }
 
 .time {
   color: $primary;
-  margin: 0 20px;
+  padding: 0 10px;
 }
 
 .power {
   color: $tertiary;
-  margin: 0 20px;
+  padding: 0 10px;
 }
