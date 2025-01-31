@@ -1,7 +1,11 @@
 .volume_button_label {
   font-size: 24px;
   color: $primary;
-  padding: 0 20px;
+  padding: 0 15px;
+}
+
+.volume_slider {
+  padding: 0 10px;
 }
 
 .volume_slider trough {

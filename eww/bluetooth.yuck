@@ -1,3 +1,19 @@
+(defwidget w_bluetooth[]
+    (eventbox :onclick "eww open bluetooth"
+              :onhover "eww update _bluetooth_reveal=true"
+      (box :space-evenly false
+        (label :class "bluetooth_button_label"
+               :text {"${_bluetooth_status.status}" == "yes" ? "󰂱" : "󰂯"})
+        (revealer :transition "slideright"
+                  :reveal _bluetooth_reveal
+          (label :class "bluetooth_connected_label"
+                 :text "${_bluetooth_status.device}")))))
+
+(defvar _bluetooth_reveal false)
+
+(defpoll _bluetooth_status :interval "1s"
+  "~/.config/iam/scripts/bluetooth.sh connection-status")
+
 (defwindow bluetooth
   :monitor 0
   :geometry (geometry :x "30px"
@@ -21,7 +37,7 @@
     (box :class "bluetooth_devices" 
          :orientation "vertical"
          :space-evenly false
-      (for device in bluetooth_devices
+      (for device in _bluetooth_devices
         (w_bluetooth_device :device device)))))
 
 (defwidget w_bluetooth_device [device]
@@ -34,12 +50,12 @@
       (box :class "bluetooth_device_name" 
         {device.name}))))
 
-(defpoll bluetooth_devices
+(defpoll _bluetooth_devices
   :interval "1s"
   :initial "[1,2]"
   `~/.config/iam/scripts/bluetooth.sh get-devices`)
 
-(defpoll scan_status
-  :interval "1s"
-  :initial "not-scanning"
-  `~/.config/iam/scripts/bluetooth.sh scan-status`)
+;;(defpoll _scan_status
+;;  :interval "1s"
+;;  :initial "not-scanning"
+;;  `~/.config/iam/scripts/bluetooth.sh scan-status`)

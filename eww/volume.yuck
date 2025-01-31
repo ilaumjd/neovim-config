@@ -1,6 +1,5 @@
 (defwidget w_volume []
   (eventbox :onhover "eww update _volume_reveal=true"
-            :onhoverlost "eww update _volume_reveal=false"
     (box :space-evenly false
       (button :onclick "pamixer --toggle-mute"
         (label :class "volume_button_label"

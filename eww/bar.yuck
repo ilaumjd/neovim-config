@@ -15,6 +15,7 @@
   (w_bar))
 
 (defwidget w_bar []
+  (eventbox :onhoverlost "eww update _volume_reveal=false _bluetooth_reveal=false"
   (box :class "bar"
        :space-evenly false
     (w_workspaces)
@@ -24,10 +25,10 @@
          :space-evenly false
          :hexpand true
       (w_volume)
-      (w_bluetooth_button)
+      (w_bluetooth)
       (w_time)
       (w_power))
-    (w_fake)))
+    (w_fake))))
 
 ;; WORKSPACES
 (defwidget w_workspaces []
@@ -60,15 +61,6 @@
 (defpoll title :interval "1s"
   ;;"xdotool getwindowfocus getwindowname")
   "hyprctl activeworkspace -j | jq -r .lastwindowtitle")
-
-;; BLUETOOTH
-(defwidget w_bluetooth_button []
-    (eventbox :onclick "eww open bluetooth"
-      (label :class "bluetooth_button"
-             :text {bluetooth_status == "yes" ? "󰂱" : "󰂯"})))
-
-(defpoll bluetooth_status :interval "1s"
-  "~/.config/iam/scripts/bluetooth.sh is-connected")
 
 ;; TIME
 (defwidget w_time []

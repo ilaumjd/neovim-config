@@ -1,3 +1,14 @@
+.bluetooth_button_label {
+  font-size: 20px;
+  color: $tertiary;
+  padding: 0 15px;
+}
+
+.bluetooth_connected_label {
+  color: $secondary;
+  padding: 0 10px;
+}
+
 .bluetooth_window {
   background-color: $base;
   border: 1px solid $overlay;
