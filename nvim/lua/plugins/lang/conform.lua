@@ -21,6 +21,7 @@ return {
       eruby = { "erb_format" },
       ruby = { "rubocop" },
       rust = { "rustfmt" },
+      sh = { "shfmt" },
       sql = { "sql_formatter" },
       swift = { "swiftformat" },
       toml = { "taplo" },
