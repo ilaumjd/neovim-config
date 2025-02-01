@@ -6,12 +6,10 @@ rofi_launch() {
 
   case "$mode" in
   "launcher")
-    rofi -show drun \
-      -font "Inter Bold 16"
+    rofi -show drun
     ;;
   "power")
     rofi -show menu \
-      -font "Inter Bold 16" \
       -modi "menu:rofi-power-menu --choices=suspend/shutdown/reboot/lockscreen/logout"
     ;;
   esac

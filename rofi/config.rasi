@@ -1,105 +1,258 @@
-configuration {
-  modes: [window,drun,run,ssh,combi];
-  combi-modes: [window,drun];
-  font: "Inter 16";
-  show-icons: true;
-  icon-theme: "Papirus";
-  drun-display-format: "{name}";
-  combi-display-format: "{text}";
-  disable-history: false;
-  sidebar-mode: false;
-  
-  kb-row-up: "Up,Control+k";
-  kb-row-down: "Down,Control+j";
-  kb-accept-entry: "Return,KP_Enter";
-  kb-remove-to-eol: "Control+Shift+e";
-  kb-mode-next: "Control+Tab";
-  kb-mode-previous: "Control+Shift+Tab";
-  kb-remove-char-back: "BackSpace";
-}
-
-@theme "/dev/null"
-
 * {
-    /* Colors */
     base: #191724;
-    primary: #f8d19a;
-    secondary: #b5dce3;
-    tertiary: #f194ad;
+    primary:    #f6c177;
+    secondary:  #9ccfd8;
+}
+
+* { border-width: 3px; }
+
+/* ---- Configuration ---- */
+configuration {
+    modi:                       "drun,run";
+    font:                       "Inter Bold 16";
+    show-icons:                 true;
+    icon-theme:                 "kora";
+    display-drun:               "APPS";
+    display-run:                "RUN";
+    display-filebrowser:        "FILES";
+    display-window:             "WINDOW";
+  	hover-select:               false;
+    scroll-method:              1;
+    me-select-entry:            "";
+    me-accept-entry:            "MousePrimary";
+    drun-display-format:        " {name}";
+    combi-display-format:       "{text}";
+    window-format:              "{w} · {c} · {t}";
+    disable-history:            false;
+    sidebar-mode:               false;
+    combi-modes:                [window,drun];
     
-    background-color: @base;
-    text-color: @secondary;
+    kb-row-up:                  "Up,Control+k";
+    kb-row-down:                "Down,Control+j";
+    kb-accept-entry:            "Return,KP_Enter";
+    kb-remove-to-eol:           "Control+Shift+e";
+    kb-mode-next:               "Control+Tab";
+    kb-mode-previous:           "Control+Shift+Tab";
+    kb-remove-char-back:        "BackSpace";
 }
 
+/* ---- Window ---- */
 window {
-    transparency: "real";
-    text-color: @primary;
-    background-color: @base;
-    border: 2px;
-    border-radius: 10px;
-    border-color: @tertiary;
-    width: 25%;
-    padding: 8px;
-    location: center;
-    anchor: center;
+    width:                        600px;
+    x-offset:                     0px;
+    y-offset:                     0px;
+    spacing:                      0px;
+    padding:                      0px;
+    margin:                       0px; 
+    color:                        @secondary;
+    border:                       @border-width;
+    border-color:                 @secondary;
+    cursor:                       "default";
+    transparency:                 "real";
+    location:                     center;
+    anchor:                       center;
+    fullscreen:                   false;
+    enabled:                      true;
+    border-radius:                10px;
+    background-color:             transparent;
 }
 
+/* ---- Mainbox ---- */
 mainbox {
-    children: [ inputbar, listview ];
-    spacing: 8px;
-    padding: 8px;
-    border-radius: 12px;
+    enabled:                      true;
+    orientation:                  horizontal;
+    spacing:                      0px;
+    margin:                       0px;
+    background-color:             @base;
+    children:                     ["listbox"];
 }
 
+/* ---- Imagebox ---- */
+imagebox {
+    padding:                      18px;
+    background-color:             transparent;
+    orientation:                  vertical;
+    children:                     [ "inputbar", "dummy", "mode-switcher" ];
+}
+
+/* ---- Listbox ---- */
+listbox {
+    spacing:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "message", "listview" ];
+}
+
+/* ---- Dummy ---- */
+dummy {
+    background-color:            transparent;
+}
+
+/* ---- Inputbar ---- */
 inputbar {
-    children: [ prompt, entry ];
-    padding: 12px;
+    enabled:                      true;
+    text-color:                   @secondary;
+    spacing:                      10px;
+    padding:                      15px;
+    border-radius:                0px;
+    border-color:                 @secondary;
+    background-color:             @base;
+    children:                     [ "textbox-prompt-colon", "entry" ];
 }
 
-prompt {
-    enabled: false;
+textbox-prompt-colon {
+    enabled:                      true;
+    expand:                       false;
+    padding:                      0px 5px 0px 0px;
+    str:                          "";
+    background-color:             transparent;
+    text-color:                   inherit;
 }
 
 entry {
-    placeholder: "Search";
-    placeholder-color: @tertiary;
-    text-color: @primary;
+    enabled:                      true;
+    background-color:             transparent;
+    text-color:                   inherit;
+    cursor:                       text;
+    placeholder:                  "Search";
+    placeholder-color:            inherit;
 }
 
+/* ---- Mode Switcher ---- */
+mode-switcher{
+    enabled:                      true;
+    spacing:                      20px;
+    background-color:             transparent;
+    text-color:                   @secondary;
+}
+
+button {
+    padding:                      10px;
+    border-radius:                10px;
+    background-color:             @base;
+    text-color:                   inherit;
+    cursor:                       pointer;
+    border:                       0px;
+}
+
+button selected {
+    background-color:             @primary;
+    text-color:                   @secondary;
+}
+
+/* ---- Listview ---- */
 listview {
-    columns: 1;
-    lines: 5;
-    spacing: 4px;
-    cycle: true;
-    dynamic: true;
-    layout: vertical;
+    enabled:                      true;
+    columns:                      1;
+    lines:                        8;
+    cycle:                        false;
+    dynamic:                      false;
+    scrollbar:                    false;
+    layout:                       vertical;
+    reverse:                      false;
+    fixed-height:                 true;
+    fixed-columns:                true;
+    spacing:                      0px;
+    padding:                      10px;
+    margin:                       0px;
+    background-color:             @base;
+    border:0px;
 }
 
+/* ---- Element ---- */
 element {
-    children: [ element-text, element-icon ];
-    border-radius: 8px;
-    padding: 6px 12px;
+    enabled:                      true;
+    padding:                      10px;
+    margin:                       5px;
+    cursor:                       pointer;
+    background-color:             @base;
+    border-radius:                10px;
+    border:                       @border-width;
 }
 
-element selected {
-    background-color: @primary;
+element normal.normal {
+    background-color:            inherit;
+    text-color:                  @secondary;
+}
+
+element normal.urgent {
+    background-color:            inherit;
+    text-color:                  @secondary;
+}
+
+element normal.active {
+    background-color:            inherit;
+    text-color:                  @secondary;
+}
+
+element selected.normal {
+    background-color:            @primary;
+    text-color:                  @base;
+}
+
+element selected.urgent {
+    background-color:            inherit;
+    text-color:                  @base;
+}
+
+element selected.active {
+    background-color:            inherit;
+    text-color:                  @base;
+}
+
+element alternate.normal {
+    background-color:            inherit;
+    text-color:                  @secondary;
+}
+
+element alternate.urgent {
+    background-color:            inherit;
+    text-color:                  @secondary;
+}
+
+element alternate.active {
+    background-color:            inherit;
+    text-color:                  @secondary;
 }
 
 element-icon {
-    size: 30px;
-    padding: 0px 10px;
-}
-
-element-icon selected {
-    background-color: @primary;
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        32px;
+    cursor:                      inherit;
 }
 
 element-text {
-    expand: true;
-    vertical-align: 0.5;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
 }
 
-element-text selected {
-    background-color: @primary;
-    text-color: @base;
+/*****----- Message -----*****/
+message {
+    background-color:            transparent;
+    border:0px;
+    margin:20px 0px 0px 0px;
+    padding:0px;
+    spacing:0px;
+    border-radius: 10px;
+}
+
+textbox {
+    padding:                     15px;
+    margin:                      0px;
+    border-radius:               0px;
+    background-color:            @base;
+    text-color:                  @secondary;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+error-message {
+    padding:                     15px;
+    border-radius:               20px;
+    background-color:            @base;
+    text-color:                  @secondary;
 }
