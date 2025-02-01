@@ -3,7 +3,7 @@
     (box :space-evenly false
       (button :onclick "pamixer --toggle-mute"
         (label :class "volume_button_label"
-               :text {_muted ? "󰝟" : "${_volume < 35 ? "󰕿" : "${_volume < 65 ? "󰖀" : "󰕾"}"}"}))
+               :text {_muted ? "󰝟" : "${_volume < 20 ? "󰕿" : "${_volume < 60 ? "󰖀" : "󰕾"}"}"}))
       (revealer :transition "slideright"
                 :reveal _volume_reveal
         (w_volume_slider)))))
