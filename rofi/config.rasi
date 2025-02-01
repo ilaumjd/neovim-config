@@ -1,7 +1,7 @@
 configuration {
   modes: [window,drun,run,ssh,combi];
   combi-modes: [window,drun];
-  font: "MesloLGM Nerd Font Bold 16";
+  font: "Inter 16";
   show-icons: true;
   icon-theme: "Papirus";
   drun-display-format: "{name}";
