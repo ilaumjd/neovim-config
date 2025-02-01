@@ -3,26 +3,6 @@
   padding: 0px 10px;
 }
 
-.workspaces {
-  margin: 10px;
-  border-radius: 15px;
-
-  button {
-    color: $tertiary;
-    border-radius: inherit;
-    
-    // &:hover {
-    //   color: $primary;
-    // }
-  }
-  
-  button.current {
-    background-color: $primary;
-    color: $base;
-    padding: 0 16px;
-  }
-}
-
 .separator {
   color: $primary;
   padding: 0 10px;

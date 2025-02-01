@@ -1,0 +1,21 @@
+.workspaces {
+  margin: 10px;
+  border-radius: 15px;
+
+  button {
+    color: $tertiary;
+    border-radius: inherit;
+    padding: 0 12px;
+    
+    // &:hover {
+    //   color: $primary;
+    // }
+  }
+  
+  button.current {
+    background-color: $primary;
+    color: $base;
+    padding: 0 20px;
+  }
+}
+

@@ -1,0 +1,18 @@
+;; WORKSPACES
+(defwidget w_workspaces []
+  (box :class "workspaces"
+       :space-evenly false
+    (for i in workspaces
+      (button :class "${current_workspace == i ? 'current' : ''}"
+              ;;:onclick "i3-msg workspace ${i}" 
+              :onclick "hyprctl dispatch workspace ${i}" 
+        i))))
+
+(defpoll current_workspace :interval "0.1s"
+  ;;"i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name'")
+  "hyprctl activeworkspace -j | jq -r .id")
+
+(defpoll workspaces :interval "0.1s"
+  ;;"i3-msg -t get_workspaces | jq -r '[.[].name] | @json'")
+  "hyprctl workspaces -j | jq -r 'sort_by(.id) | [.[].id] | @json'")
+
