@@ -16,6 +16,7 @@ return {
     formatters_by_ft = {
       c = { "clang_format" },
       go = { "gofmt" },
+      kdl = { "kdlfmt" },
       lua = { "stylua" },
       nix = { "nixfmt" },
       eruby = { "erb_format" },
@@ -39,6 +40,11 @@ return {
       lsp_fallback = true,
     },
     formatters = {
+      kdlfmt = {
+        command = "kdlfmt",
+        args = { "format", "-" },
+        stdin = true,
+      },
       sql_formatter = {
         inherit = false,
         command = "sql-formatter",
