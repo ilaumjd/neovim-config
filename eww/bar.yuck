@@ -28,21 +28,7 @@
       (w_bluetooth)
       (w_time)
       (w_power))
-    (w_fake))))
-
-;; SEPARATOR
-(defwidget w_separator []
-  (box :class "separator"
-    "󱄅"))
-
-;; TITLE
-(defwidget w_title []
-  (box :class "title"
-    title))
-
-(defpoll title :interval "1s"
-  ;;"xdotool getwindowfocus getwindowname")
-  "hyprctl activeworkspace -j | jq -r .lastwindowtitle")
+   )))
 
 ;; TIME
 (defwidget w_time []
@@ -57,8 +43,3 @@
     (button :class "power"
             :onclick "~/.config/iam/scripts/rofi.sh power"
       "⏻"))
-
-;; INVISIBLE WIDGET
-(defwidget w_fake []
-  (box :visible false
-    current_workspace))

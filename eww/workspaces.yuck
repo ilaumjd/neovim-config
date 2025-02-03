@@ -3,16 +3,22 @@
   (box :class "workspaces"
        :space-evenly false
     (for i in workspaces
-      (button :class "${current_workspace == i ? 'current' : ''}"
-              ;;:onclick "i3-msg workspace ${i}" 
-              :onclick "hyprctl dispatch workspace ${i}" 
+      (button :class "${"${active_workspace.id}" == i ? 'current' : ''}"
+              :onclick "~/.config/iam/scripts/eww-hyprland.sh select ${i}" 
         i))))
 
-(defpoll current_workspace :interval "0.1s"
-  ;;"i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name'")
-  "hyprctl activeworkspace -j | jq -r .id")
+(defpoll active_workspace :interval "0.1s"
+  "~/.config/iam/scripts/eww-hyprland.sh active")
 
 (defpoll workspaces :interval "0.1s"
-  ;;"i3-msg -t get_workspaces | jq -r '[.[].name] | @json'")
-  "hyprctl workspaces -j | jq -r 'sort_by(.id) | [.[].id] | @json'")
+  "~/.config/iam/scripts/eww-hyprland.sh list")
 
+;; SEPARATOR
+(defwidget w_separator []
+  (box :class "separator"
+    "󱄅"))
+
+;; TITLE
+(defwidget w_title []
+  (box :class "title"
+    "${active_workspace.title}"))
