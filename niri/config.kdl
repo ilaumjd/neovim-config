@@ -72,6 +72,15 @@ binds {
     Mod+Escape {
         spawn "~/.config/iam/scripts/rofi.sh" "power"
     }
+    Mod+Shift+6 {
+        spawn "~/.config/iam/scripts/wf-recorder.sh" "full"
+    }
+    Mod+Shift+7 {
+        spawn "~/.config/iam/scripts/wf-recorder.sh" "select"
+    }
+    Mod+Shift+8 {
+        spawn "~/.config/iam/scripts/wf-recorder.sh" "kill"
+    }
     // System
     Mod+Shift+Slash {
         show-hotkey-overlay
