@@ -1,5 +1,5 @@
 (defwidget w_bluetooth[]
-    (eventbox :onclick "eww open bluetooth"
+    (eventbox :onclick "blueberry &"
               :onhover "eww update _bluetooth_reveal=true"
       (box :space-evenly false
         (label :class "bluetooth_button_label"
@@ -14,48 +14,49 @@
 (defpoll _bluetooth_status :interval "1s"
   "~/.config/iam/scripts/bluetooth.sh connection-status")
 
-(defwindow bluetooth
-  :monitor 0
-  :geometry (geometry :x "30px"
-                     :y "0px"
-                     :width "300px"
-                     :height "0px"
-                     :anchor "top right")
-  (eventbox :onhoverlost "eww close bluetooth"
-    (w_bluetooth_window)))
-
-(defwidget w_bluetooth_window []
-  (box :class "bluetooth_window"
-       :orientation "vertical"
-;;    (box :class "bluetooth_buttons"
-;;      (button :onclick "~/.config/iam/scripts/bluetooth.sh toggle-power"
-;;              :class "power-button"
-;;        "Toggle Bluetooth")
-;;      (button :onclick "~/.config/iam/scripts/bluetooth.sh scan"
-;;              :class "scan-button ${scan_status == 'scanning' ? 'scanning' : ''}"
-;;        "${scan_status == 'scanning' ? 'Scanning...' : 'Scan'}"))
-    (box :class "bluetooth_devices" 
-         :orientation "vertical"
-         :space-evenly false
-      (for device in _bluetooth_devices
-        (w_bluetooth_device :device device)))))
-
-(defwidget w_bluetooth_device [device]
-  (button :class "bluetooth_device"
-          :onclick "~/.config/iam/scripts/bluetooth.sh toggle-connection ${device.id}"
-    (box :halign "start"
-         :space-evenly false
-      (box :class "bluetooth_device_icon_${device.status}" 
-        "󰂯")
-      (box :class "bluetooth_device_name" 
-        {device.name}))))
-
-(defpoll _bluetooth_devices
-  :interval "1s"
-  :initial "[1,2]"
-  `~/.config/iam/scripts/bluetooth.sh get-devices`)
-
-;;(defpoll _scan_status
+;;
+;;(defwindow bluetooth
+;;  :monitor 0
+;;  :geometry (geometry :x "30px"
+;;                     :y "0px"
+;;                     :width "300px"
+;;                     :height "0px"
+;;                     :anchor "top right")
+;;  (eventbox :onhoverlost "eww close bluetooth"
+;;    (w_bluetooth_window)))
+;;
+;;(defwidget w_bluetooth_window []
+;;  (box :class "bluetooth_window"
+;;       :orientation "vertical"
+;;;;    (box :class "bluetooth_buttons"
+;;;;      (button :onclick "~/.config/iam/scripts/bluetooth.sh toggle-power"
+;;;;              :class "power-button"
+;;;;        "Toggle Bluetooth")
+;;;;      (button :onclick "~/.config/iam/scripts/bluetooth.sh scan"
+;;;;              :class "scan-button ${scan_status == 'scanning' ? 'scanning' : ''}"
+;;;;        "${scan_status == 'scanning' ? 'Scanning...' : 'Scan'}"))
+;;    (box :class "bluetooth_devices" 
+;;         :orientation "vertical"
+;;         :space-evenly false
+;;      (for device in _bluetooth_devices
+;;        (w_bluetooth_device :device device)))))
+;;
+;;(defwidget w_bluetooth_device [device]
+;;  (button :class "bluetooth_device"
+;;          :onclick "~/.config/iam/scripts/bluetooth.sh toggle-connection ${device.id}"
+;;    (box :halign "start"
+;;         :space-evenly false
+;;      (box :class "bluetooth_device_icon_${device.status}" 
+;;        "󰂯")
+;;      (box :class "bluetooth_device_name" 
+;;        {device.name}))))
+;;
+;;(defpoll _bluetooth_devices
 ;;  :interval "1s"
-;;  :initial "not-scanning"
-;;  `~/.config/iam/scripts/bluetooth.sh scan-status`)
+;;  :initial "[1,2]"
+;;  `~/.config/iam/scripts/bluetooth.sh get-devices`)
+;;
+;;;;(defpoll _scan_status
+;;;;  :interval "1s"
+;;;;  :initial "not-scanning"
+;;;;  `~/.config/iam/scripts/bluetooth.sh scan-status`)
