@@ -2,8 +2,8 @@
 (defwidget w_workspaces []
   (box :class "workspaces"
        :space-evenly false
-    (for i in workspaces
-      (button :class "${"${active_workspace.id}" == i ? 'current' : ''}"
+    (for i in "${_workspaces.workspaces}"
+      (button :class "${"${_workspaces.active_workspace}" == i ? 'current' : ''}"
               :onclick "~/.config/iam/scripts/eww-hyprland.sh select ${i}" 
         i))))
 
@@ -13,6 +13,9 @@
 (defpoll workspaces :interval "0.1s"
   "~/.config/iam/scripts/eww-hyprland.sh list")
 
+(defpoll _workspaces :interval "0.1s"
+  "~/.config/iam/scripts/eww-niri.sh get")
+
 ;; SEPARATOR
 (defwidget w_separator []
   (box :class "separator"
@@ -21,4 +24,4 @@
 ;; TITLE
 (defwidget w_title []
   (box :class "title"
-    "${active_workspace.title}"))
+    "${_workspaces.active_window}"))
