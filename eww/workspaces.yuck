@@ -17,8 +17,8 @@
   "~/.config/iam/scripts/eww-niri.sh get")
 
 ;; SEPARATOR
-(defwidget w_separator []
-  (box :class "separator"
+(defwidget w_logo []
+  (box :class "logo"
     "󱄅"))
 
 ;; TITLE
