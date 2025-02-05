@@ -64,7 +64,7 @@ spawn-at-startup "xwayland-satellite"
 binds {
     // Custom
     Mod+Return {
-        spawn "wezterm"
+        spawn "ghostty"
     }
     Mod+Space {
         spawn "~/.config/iam/scripts/rofi.sh" "launcher"
@@ -127,6 +127,12 @@ binds {
         focus-window-or-workspace-up
     }
     Mod+L {
+        focus-column-right
+    }
+    MouseBack {
+        focus-column-left
+    }
+    MouseForward {
         focus-column-right
     }
     // Move Window
